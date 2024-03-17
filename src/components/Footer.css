@@ -1,0 +1,135 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/*footer*/
+.footer {
+    height: auto; /* Changed to auto to allow content to dictate height */
+    background-color: #526534;
+    width: 100%;
+    display: flex; /* Ensuring the container expands vertically */
+    flex-wrap: wrap; /* Allow content to wrap */
+    justify-content: space-around; /* Align items with space around */
+    align-items: center; /* Align items in the center */
+    padding: 20px 0; /* Adjusted padding for better spacing */
+}
+
+#logo2 {
+    width: 100%; /* Occupy full width on smaller screens */
+    max-width: 300px; /* Limiting max width for better readability */
+    text-align: center; /* Center aligning the content */
+    margin-bottom: 20px; /* Adding some space below the logo */
+}
+
+#socials, #add {
+    width: 100%; /* Occupy full width on smaller screens */
+    max-width: 300px; /* Limiting max width for better readability */
+    text-align: center; /* Center aligning the content */
+    margin-bottom: 20px; /* Adding some space below each section */
+}
+
+.footer img {
+    width: 100%;
+    height: auto; /* Allowing image height to adjust proportionally */
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        height: 53vh;
+    }
+
+    #logo2, #socials, #add {
+        width: 30%; /* Adjusting width for larger screens */
+        max-width: none; /* Removing max-width limit */
+        text-align: left; /* Resetting text alignment */
+        margin-bottom: 0; /* Removing bottom margin */
+    }
+
+    .footer img {
+        width: 130px; /* Adjusting image width for larger screens */
+        height: auto; /* Allowing image height to adjust proportionally */
+    }
+}
+
+/* Rest of the CSS remains unchanged */
+
+  
+  /*copyright-text*/
+  p.copyright-text{
+    text-align: center;
+    font-size: 14px;
+    padding: 0 15px;
+    color: #fff;
+    text-transform: uppercase;
+    padding:  20px 0;
+    border-top: 1px solid #cccccc;
+  }
+  
+  
+  @media screen and (min-width: 769px) and (max-width: 1200px){
+    .nav-bar img{
+      float: left;
+      max-width: 40%;
+      margin-top: 2px;
+    }
+    .close-menu,
+    .open-menu {
+      display: block;
+    }
+    nav{
+    top: calc(2vh + 11%);
+    }
+    .nav {
+      display: none;
+      position: absolute;
+      top: calc(15vh + 100%);
+      left: 0;
+      width: 100%;
+      padding-bottom: 40px;
+      background-color: #526534;
+    }
+  
+    .nav.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .close-menu {
+      display: block;
+      position: absolute;
+      top: 9px;
+      right: 5px;
+      z-index: 1;
+    }
+    #check:checked ~ .nav {
+        display: block;
+      }
+  
+      #check:checked ~ .open-menu {
+        display: none;
+      }
+  
+      #check:checked ~ .close-menu {
+        display: block;
+      }
+    .menu-list {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+  
+    .menu-list li {
+      margin: 10px 0;
+    }
+  }
+
+  .add,
+  .socials,
+  .logo2{
+    display: inline-block;
+  }

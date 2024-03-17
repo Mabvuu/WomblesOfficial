@@ -1,0 +1,16 @@
+
+
+.slideshow-container {
+    max-width: 100%; /* Set maximum width */
+    margin: 0 auto; /* Center the slideshow horizontally */
+  }
+  
+  
+  
+  /* Adjust image size */
+  .slideshow-container img {
+    max-width: 100%; /* Make images fill the slide container */
+    height: 67vh; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire slide */
+  }
+  
