@@ -3,15 +3,6 @@
 /* Custom CSS for Slideshow */
 
 /* header */
-.header {
-  height: 7vh;
-  width: 100%;
-  background-color: #526534;
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .address,
 .number,
@@ -21,55 +12,64 @@
 }
 
 .address {
-  width: 38%;
-  font-size: 16px;
+  width: 35%;
+  font-size: 15px;
+  margin-left: 20px;
 }
 
 .number,
 .email {
-  width: 29%;
+  width: 25%;
   font-size: 15px;
 }
 
 .address,
-.number,
 .email {
-  margin-top: 15px; /* Adjust the margin-top value to bring them lower */
+  margin-top: 20px; 
 }
-@media screen and (min-width: 200px) and (max-width: 599px) {
+.email {
+  margin-right: 35px; 
+  font-size: 17px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 600px){
   .number, .email, .address{
-    font-size: 10px;
+    font-size: 9px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  header{
+    height: 8vh;
+  }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .number, .email, .address{
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  header{
+    height: 7vh;
   }
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  padding-left: 40%;
-}
 
-.logo img {
-  max-width: 37%; /* Set the maximum width of the logo */
-  height: auto; /* Maintain aspect ratio */
-}
 
 /* nav section */
-/* CSS for navigation bar */
-.navbar {
-  display: relative;
-  justify-content: space-between;
-  align-items: center;
+
+nav {
+
   background-color: #526534;
-  padding: 10px;
-  text-align: center;
-  z-index: 2;
+  width: 100%;
+  
 }
 
-.navbar-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
+.menu {
+  background-color: #526534; /* Set background color to #526534 */
+  height: 400px; /* Set the height to your desired longer height */
 }
+
 
 

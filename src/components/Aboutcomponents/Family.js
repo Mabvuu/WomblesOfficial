@@ -9,10 +9,10 @@ const Staff = () => {
         <img src="/img1/26.JPG" alt="" />
 
         <p>At our restaurant, we take pride in our amazing team of dedicated and hardworking employees.
-         From the moment you walk through our doors, you'll be greeted by our friendly and attentive staff,
+         From the moment you walk through our doors &lsquo; you&apos;ll be greeted by our friendly and attentive staff &lsquo;
         who go above and beyond to provide exceptional service.
         Our kitchen team consists of talented chefs and cooks who tirelessly prepare
-        delicious meals with great attention to detail. Our waitstaff is known for their efficiency,
+        delicious meals with great attention to detail. Our waitstaff is known for their efficiency  &lsquo;
          ensuring your dining experience is smooth and enjoyable.
           Behind the scenes, our diligent cleaning and maintenance crew work hard to maintain a clean and welcoming environment.
            Together, our exceptional team embodies the spirit of hard work, passion, and commitment, all with the goal of providing you with an unforgettable dining experience</p>

@@ -15,10 +15,3 @@ body{
 *:not(i){
 font-family: 'Josefin Sans', sans-serif;
 }
-.container{
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 30px;
-  box-sizing: border-box;
-  overflow: hidden;
-}

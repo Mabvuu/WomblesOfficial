@@ -1,16 +1,17 @@
 import React from 'react';
-import '../Aboutcomponents/about.css';
+import './about.css';
 
 
 const Home = () => {
   return (
-    <section className="home-section">
-      <div className="home">
-        <div className="row">
-          <h1>Our Story</h1>
-        </div>
+    <section className="home-about md:h-auto bg-cover">
+    <div className="home">
+      <div className="row">
+        <h1 className="text-4xl md:text-6xl">Our Story</h1>
       </div>
-    </section>
+    </div>
+  </section>
+  
   );
 }
 

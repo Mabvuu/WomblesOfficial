@@ -1,29 +1,35 @@
-.home-section{
-    min-height: 60vh;
-    background-image: url('img/13.JPG');
+.home-about{
+    min-height: 36vh;
+    background-image: url('img/12.JPG');
     background-position: center;
     background-size: cover;
     position: relative;
-    z-index: 1;
     width: 100%;
+   
   }
   
-  .home-section h1{
+  .home-about h1{
     text-align: center;
-    padding-top: 150px;
+    padding-top: 120px;
     color: #fff;
     font-size: 4rem;
     text-transform: uppercase;
   }
 
+  @media screen and (min-width: 200px) and (max-width: 1200px){
+    .home-about h1{
+      padding-top: 200px;
+    }
+  }
+
 
   /*STORYLINE*/
   .story-section{
-    flex: 1;
-    margin-bottom: 30px;
-    height: 110vh;
-    width: 100%;
-    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+    padding: 20px; 
+    padding-bottom: 2vh;
   }
   .story-section h1{
     text-align: left;
@@ -58,89 +64,41 @@
     height: auto;
   margin-left: 120px;
   }
-  @media screen and (min-width: 500px) and (max-width: 1200px){
+
+  @media screen and (min-width: 200px) and (max-width: 1000px) {
+    .story-section {
+      width: 100%; 
+    }
   
-    .story-section{
-      flex: 1;
-      margin-bottom: 30px;
-      height: 150vh;
-      width: 100%;
-      padding-top: 50px;
+    .storyline {
+      display: block; 
+      width: 100%; 
+      font-size: 0.875rem; 
     }
-    .story-section h1{
-      text-align: left;
-      font-size: 2.2rem;
-      color: #526534;
-      font-weight: lighter;
-    }
-    .storyline h2{
-      text-align: center;
-      font-weight: 400;
-      text-transform: capitalize;
-      font-size: 4rem;
-    }
-    .storyline p{
-      font-size: 1.8rem;
-    }
-      .storyline{
-        display: block;
-        width: 100%;
-      }
     .storyline-img img{
-      padding-top: 40px;
-      max-width: 40%;
-      height: auto;
-    margin-left: 10px;
-    }
-    .storyline-img{
-      width: 100%;
-  
-    }
-  }
-  @media screen and (min-width: 200px) and (max-width: 599px){
-    .story-section{
-      flex: 1;
-      margin-bottom: 30px;
-      height: 70vh;
-      width: 100%;
       padding-top: 20px;
-    }
-    .story-section h1{
-      text-align: left;
-      font-size: 2.2rem;
-      color: #526534;
-      font-weight: lighter;
-    }
-    .storyline{
-      width: 100%;
-    }
-    .storyline h2{
-      text-align: center;
-      font-weight: 400;
-      text-transform: capitalize;
-      font-size: 2rem;
-    }
-    .storyline p{
-      font-size: 0.89rem;
-    }
-    .storyline-img{
-      width: 100%;
-    }
-    .storyline-img img{
-      padding-top: 40px;
-      max-width: 80%;
-      height: auto;
-    margin-left: 40px;
+      max-width: 100%;
+    margin-left: 70px;
     }
   }
 
+
+
+
+
+
+
+
+  
+
+
    /*Family*/
    .staff-section{
-    flex: 1;
-    margin-bottom: 30px;
-    height: 110vh;
-    width: 100%;
-    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+    padding: 20px; 
+    padding-bottom: 2vh;
   }
   .staff-section h2{
     text-align: center;
@@ -153,7 +111,7 @@
     align-items: center;
     max-width: 50%;
     padding-bottom: 50px;
-    margin-left: 150px;
+    margin-left: 270px;
   }
   .staff-section p{
     font-size: 1.4rem;
@@ -162,7 +120,7 @@
   @media screen and (min-width: 600px) and (max-width: 1200px){
     .staff-section img{
       max-width: 50%;
-      margin-left: 40px;
+      margin-left: 200px;
     }
     .storyline-img img{
       padding-top: 40px;
@@ -176,17 +134,17 @@
       align-items: center;
       max-width: 90%;
       padding-bottom: 50px;
-      margin-left: 10px;
+      margin-left: 30px;
     }
   }
 
   /*Gallery*/
   .gallery-section{
-    flex: 1;
-    margin-bottom: 30px;
-    height: 70vh;
-    width: 100%;
-    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+    padding: 20px; 
+    padding-bottom: 2vh;
   }
   .gallery-section .gallery {
     display: grid;

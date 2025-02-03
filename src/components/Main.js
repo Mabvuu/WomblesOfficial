@@ -4,8 +4,9 @@ import './Main.css';
 import Mainabout from './Maincomponents/Mainabout';
 import Menuteaser from './Maincomponents/Menuteaser';
 import Teasepage from './Maincomponents/Teasepage';
-import Schedule from './Maincomponents/Schedule'
-import Footer from './Footer';
+import Schedule from './Maincomponents/Schedule';
+import Gallery from './Maincomponents/Gallery';
+
 
 
 
@@ -13,14 +14,16 @@ import Footer from './Footer';
 const Main = () => {
   return (
     <>
-     <Slideshow />
-       <Mainabout />
-      {/*<Menuteaser/> 
+      <Slideshow />
+      <Mainabout />
+       <Menuteaser/> 
       <Teasepage/>
-      <Schedule />*/}
-  <Footer />
-    
-  
+      <Schedule />
+      <Gallery />
+     
+     
+
+
     </>
   );
 }

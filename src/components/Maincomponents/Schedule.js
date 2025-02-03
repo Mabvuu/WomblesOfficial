@@ -1,47 +1,35 @@
 import React from 'react';
-import './Mainpage.css';
+import { Helmet } from 'react-helmet';
 
 const Schedule = () => {
   return (
-    <div className="community">
-      <div className="timetable" id="rightline">
-        <div className="time">
-          <h1> Our Opening Hours</h1>
-          <h2>Monday to Friday</h2>
-          <h4> <b>Open</b> Lunch</h4>
-          <h4> <b>Open</b> Dinner</h4>
-          <h2>Saturday </h2>
-          <h4><b>Open</b> Dinner</h4>
-          <h2>Sunday</h2>
-          <h5>CLOSED</h5>
-        </div>
-      </div>
-      <div className="fcf-body">
-        <div id="fcf-form">
-          <h3 className="fcf-h3">Contact us</h3>
-          <form id="fcf-form-id" className="fcf-form-class" method="post" action="contact-form-process.php">
-            <div className="fcf-form-group">
-              <label htmlFor="Name" className="fcf-label">Your name</label>
-              <div className="fcf-input-group">
-                <input type="text" id="Name" name="Name" className="fcf-form-control" required />
-              </div>
+    <div className="bg-gray-100 py-8">
+      <Helmet>
+        
+        <meta name="description" content="Check out the opening hours of our steakhouse. We are open Monday to Saturday for lunch and dinner, and closed on Sundays. Come visit the best steakhouse in Harare!" />
+      </Helmet>
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h1 className="text-4xl font-bold mb-6 text-center">Our Opening Hours</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-center">Monday to Friday</h2>
+              <ul className="list-disc pl-4">
+                <li><b>Lunch:</b> 12:00 PM - 3:00 PM</li>
+                <li><b>Dinner:</b> 6:00 PM - 10:00 PM</li>
+              </ul>
             </div>
-            <div className="fcf-form-group">
-              <label htmlFor="Email" className="fcf-label">Your email address</label>
-              <div className="fcf-input-group">
-                <input type="email" id="Email" name="Email" className="fcf-form-control" required />
-              </div>
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-center">Saturday</h2>
+              <ul className="list-disc pl-4">
+                <li><b>Dinner:</b> 6:00 PM - 11:00 PM</li>
+              </ul>
             </div>
-            <div className="fcf-form-group">
-              <label htmlFor="Message" className="fcf-label">Your message</label>
-              <div className="fcf-input-group">
-                <textarea id="Message" name="Message" className="fcf-form-control" rows="6" maxLength="3000" required></textarea>
-              </div>
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-center">Sunday</h2>
+              <p className="text-center"><b>CLOSED</b></p>
             </div>
-            <div className="fcf-form-group">
-              <button type="submit" id="fcf-button" className="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
