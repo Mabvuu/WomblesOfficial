@@ -13,8 +13,11 @@ import Salads from './components/Menucomponents/Salads';
 import Starters from './components/Menucomponents/Starters';
 import Desserts from './components/Menucomponents/Desserts';
 import Cocktails from './components/Menucomponents/Cocktails';
-import Wine from './components/Menucomponents/Wine';
 import Barmenu from './components/Menucomponents/Barmenu';
+import RedWine from './components/Menucomponents/Wines/Redwine';
+import Whitewine from './components/Menucomponents/Wines/Whitewine';
+import Methode from './components/Menucomponents/Wines/Methode';
+import Imported from './components/Menucomponents/Wines/Imported';
 
 
 
@@ -42,7 +45,10 @@ function App() {
           <Route path="/Starters" exact component={Starters} />
           <Route path="/Desserts" exact component={ Desserts} />
           <Route path="/Cocktails" exact component={ Cocktails } />
-          <Route path="/Wine" exact component={ Wine} />
+          <Route path="/Red" exact component={ RedWine} />
+          <Route path="/White" exact component={ Whitewine} />
+          <Route path="/Methode" exact component={ Methode} />
+          <Route path="/imported" exact component={ Imported} />
           <Route path="/Barmenu" exact component={ Barmenu } />
         
         </Switch>

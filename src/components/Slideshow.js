@@ -24,19 +24,19 @@ const Slideshow = () => {
       <img
         src={images[currentImageIndex].src}
         alt={images[currentImageIndex].alt}
-        className="w-full h-[69vh] object-cover transition-opacity duration-5000 ease-in-out"
+        className="w-full h-[70vh] lg:h-[80vh] object-cover transition-opacity duration-5000 ease-in-out"
       />
-      
-      {/* Navigation buttons (optional) */}
+
+      {/* Navigation buttons */}
       <button
         onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 p-2 rounded-full hover:bg-black/70 transition-all"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 p-4 lg:p-5 rounded-full hover:bg-black/70 transition-all"
       >
         &#10094;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 p-2 rounded-full hover:bg-black/70 transition-all"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 p-4 lg:p-5 rounded-full hover:bg-black/70 transition-all"
       >
         &#10095;
       </button>

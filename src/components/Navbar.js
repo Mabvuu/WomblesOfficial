@@ -1,117 +1,219 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import './Navbar.css';
-import { AiOutlineClose } from "react-icons/ai";
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
-import { AiOutlineDown } from 'react-icons/ai'; // Arrow icon
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
 
 const Navbar = () => {
-  const [menu, setMenu] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleChange = () => {
-    setMenu(!menu);
-  };
+  // Scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="bg-[#526534] text-white h-[8vh] w-full pb-7 flex justify-between items-center overflow-hidden pt-6">
-        <div className="address">
-          <p><i className="fa-solid fa-location-dot"></i> 158 Enterprise road, Highlands, {' '} Harare</p>
-        </div>
-        <div className="number">
-          <p><a href="tel:0242497768"><i className="fas fa-phone"></i> (024) 2497768</a></p>
-          <p><a href="tel:+263772336224"><i className="fas fa-phone"></i> +263 772 336 224</a></p>
-        </div>
+      {/* Header and logo */}
+      <header className="bg-[#526534] text-white w-full z-40 flex flex-col sm:flex-row justify-between items-center px-4 py-4 sm:py-6">
+  <div className="address text-center sm:text-left">
+    <p className="text-sm sm:text-base"><i className="fa-solid fa-location-dot"></i> 158 Enterprise road, Highlands, {' '} Harare</p>
+  </div>
+  <div className="number text-center sm:text-left">
+    <p className="text-sm sm:text-base"><a href="tel:0242497768"><i className="fas fa-phone"></i> (024) 2497768</a></p>
+    <p className="text-sm sm:text-base"><a href="tel:+263772336224"><i className="fas fa-phone"></i> +263 772 336 224</a></p>
+  </div>
 
-        <div className="email">
-          <p><a href="mailto:bookings@khayanyama.com" className="hover:underline">
-            <i className="fas fa-envelope"></i> bookings@khayanyama.com
-          </a></p>
-        </div>
-      </header>
+  <div className="email text-center sm:text-left">
+    <p className="text-sm sm:text-base"><a href="mailto:bookings@khayanyama.com" className="hover:underline">
+      <i className="fas fa-envelope"></i> bookings@khayanyama.com
+    </a></p>
+  </div>
 
-      <div className="flex justify-center items-center">
-        <div className="flex justify-center items-center w-[27%]">
-          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} alt="Image" />
-        </div>
-      </div>
 
-      {/* NAVBAR */}
-      <nav className="navbar flex justify-center items-center bg-[#526534] p-4">
-        <div className={`flex justify-center items-center space-x-4 ${!menu ? "hidden md:flex" : ""}`}>
-          <RouterLink to="/" spy={true} smooth={true} duration={500} className="text-white text-xl hover:underline cursor-pointer">Home</RouterLink>
-          <RouterLink to="/About" spy={true} smooth={true} duration={500} className="text-white text-xl hover:underline cursor-pointer">About</RouterLink>
+  
+</header>
 
-          {/* Dropdown Menu with Arrow */}
-          <div className="relative group">
-            <div onClick={toggleDropdown} className="flex items-center text-white text-xl hover:underline cursor-pointer">
-              Menu
-              <AiOutlineDown className={`ml-2 transform ${dropdownOpen ? "rotate-180" : ""} transition-all`} />
-            </div>
-            {dropdownOpen && (
-              <ul className="absolute bg-white border border-gray-400 rounded-lg p-4 z-10 w-52 mt-2">
-                <li><RouterLink to="/Mains" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Mains</RouterLink></li>
-                <li><RouterLink to="/Salads" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Salads</RouterLink></li>
-                <li><RouterLink to="/Starters" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Starters</RouterLink></li>
-                <li><RouterLink to="/Desserts" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Desserts</RouterLink></li>
-                <li><RouterLink to="/Cocktails" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Cocktails</RouterLink></li>
-                <li><RouterLink to="/Wine" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Wine</RouterLink></li>
-                <li><RouterLink to="/Barmenu" spy={true} smooth={true} duration={500} className="text-black text-xl hover:underline cursor-pointer">Bar Menu</RouterLink></li>
-              </ul>
-            )}
+<div className="flex justify-center items-center p-0 m-0">
+  <div className="flex justify-center items-center w-[25%] p-0 m-0">
+    <img
+      src={`${process.env.PUBLIC_URL}/images/logo.jpg`}
+      alt="Wombles Khaya Nyama Wombles Harare"
+      className="block h-auto max-h-[100px] object-contain align-bottom"
+    />
+  </div>
+</div>
+
+
+
+
+      {/* Navbar */}
+      <motion.nav
+
+className={`text-white w-full bg-[#526534] shadow-md z-50 h-16 transition-all duration-300 ${
+  isScrolled ? 'fixed top-0 left-0 w-full' : 'relative -top-0'
+}`}// Adjusted for scrolling
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+
+        
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:space-x-6">
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6 items-center">
+            <Link to="/" className="hover:text-gray-300">Home</Link>
+            <Link to="/About" className="hover:text-gray-300">About</Link>
+            <Menu 
+              menuButton={
+                <MenuButton className="hover:text-gray-300 underline focus:outline-none">
+                  Menu
+                </MenuButton>
+              }
+              transition
+            >
+              <MenuItem>
+                <Link to="/Starters" className="hover:text-gray-700">Starters</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/Salads" className="hover:text-gray-700">Salads</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/Mains" className="hover:text-gray-700">Main</Link>
+              </MenuItem>
+              <SubMenu label="Wine">
+                <MenuItem>
+                  <Link to="/Red" className="hover:text-gray-700">Red Wine</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/White" className="hover:text-gray-700">White Wine</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/Methode" className="hover:text-gray-700">MÉTHODE CAP CLASSIQUE</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/Imported" className="hover:text-gray-700">Imported Wine</Link>
+                </MenuItem>
+              </SubMenu>
+              <MenuItem>
+                <Link to="/Desserts" className="hover:text-gray-700">Dessert</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/Cocktails" className="hover:text-gray-700">Cocktails</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/Barmenu" className="hover:text-gray-700">Bar Menu</Link>
+              </MenuItem>
+            </Menu>
+            <Link to="/Contact" className="hover:text-gray-300">Contact</Link>
           </div>
 
-          <RouterLink to="/contact" spy={true} smooth={true} duration={500} className="text-white text-xl hover:underline cursor-pointer">Contact</RouterLink>
-        </div>
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex  items-center">
 
-        <div className="md:hidden flex items-center justify-between space-x-4">
-          <a href="https://www.facebook.com/wombleszimbabwe/" className="text-white text-2xl pt-2 hover:text-gray-300">
-            <i className="fab fa-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/wombles_zimbabwe/" className="text-white text-2xl pt-2 hover:text-gray-300">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <div className="flex items-center flex-grow">
-            {menu ?
-              (<AiOutlineClose size={25} onClick={handleChange} className="text-white z-20 absolute top-13 right-0 mr-4 mt-4 border border-white rounded-full p-1" />) :
-              (<AiOutlineMenuUnfold size={25} onClick={handleChange} className="text-white" />)
-            }
+          <p className="text-xl -mt-6">
+            <a href="https://www.facebook.com/wombleszimbabwe/" className="text-white hover:text-[#526534] hover:bg-[#fff] flex items-center justify-center">
+              <i className="fab fa-facebook text-2xl mr-4 "></i> 
+            </a>
+          </p>
+          <p className="text-xl -mt-6">
+            <a href="https://www.instagram.com/wombles_zimbabwe/?hl=en" className="text-white hover:text-[#526534] hover:bg-[#fff] flex items-center justify-center ">
+              <i className="fab fa-instagram text-2xl mr-4"></i> 
+            </a>
+          </p>
+          
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="focus:outline-none"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
           </div>
+          
         </div>
-      </nav>
 
-      <div className={`menu ${menu ? "translate-x-0" : "-translate-x-full"} lg:hidden flex flex-col absolute text-white left-0 top-[4.4rem] font-semibold text-xl text-center pt-8 w-full h-fit transition-transform duration-300 border-t border-white z-10`}>
-        <RouterLink to="/" spy={true} smooth={true} duration={500} className="text-white hover:underline cursor-pointer font-light mb-6">HOME</RouterLink>
-        <RouterLink to="/About" spy={true} smooth={true} duration={500} className="text-white hover:underline cursor-pointer font-light mb-6">ABOUT</RouterLink>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden bg-[#526534]  py-0 text-black shadow-lg w-full fixed left-0 z-50"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+           <Link to="/" className="block px-6 text-lg py-3 hover:bg-gray-300">Home</Link>
+<Link to="/About" className="block px-6 py-3 text-lg hover:bg-gray-300">About</Link>
+<Menu
+  menuButton={
+    <MenuButton className="block px-6 py-3 hover:bg-gray-300 w-full">
+      Menu
+    </MenuButton>
+  }
+  transition
+>
 
-        <div className="relative group">
-          <div onClick={toggleDropdown} className=" text-white text-2xl font-light hover:underline cursor-pointer mb-8">
-            Menu
-            
-          </div>
-          {dropdownOpen && (
-            <ul className="absolute bg-white border border-gray-400 rounded-lg p-4 z-20 w-full">
-              <li><RouterLink to="/Mains" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Mains</RouterLink></li>
-              <li><RouterLink to="/Salads" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Salads</RouterLink></li>
-              <li><RouterLink to="/Starters" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Starters</RouterLink></li>
-              <li><RouterLink to="/Desserts" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Desserts</RouterLink></li>
-              <li><RouterLink to="/Wine" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Wine</RouterLink></li>
-              <li><RouterLink to="/Cocktails" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Cocktails</RouterLink></li>
-              <li><RouterLink to="/Barmenu" spy={true} smooth={true} duration={500} className="text-black text-2xl font-light hover:underline cursor-pointer">Bar Menu</RouterLink></li>
-            </ul>
-          )}
-        </div>
-        <RouterLink to="contact" spy={true} smooth={true} duration={500} className="text-white hover:underline font-light cursor-pointer mb-6">CONTACT</RouterLink>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 bottom-4 w-[37%]">
-          <img src={process.env.PUBLIC_URL + '/images/logo.jpg'} alt="Image" />
-        </div>
-      </div>
+  <MenuItem>
+    <Link to="/Starters" className="block px-6 py-3 hover:text-[#526534]">Starters</Link>
+  </MenuItem>
+  <MenuItem>
+    <Link to="/Salads" className="block px-6 py-3 hover:text-gray-700">Salads</Link>
+  </MenuItem>
+  <MenuItem>
+    <Link to="/Mains" className="block px-6 py-3 hover:text-gray-700">Main</Link>
+  </MenuItem>
+  <SubMenu label="Wine">
+    <MenuItem>
+      <Link to="/Red" className="block px-6 py-3 hover:text-gray-700">Red Wine</Link>
+    </MenuItem>
+    <MenuItem>
+      <Link to="/White" className="block px-6 py-3 hover:text-gray-700">White Wine</Link>
+    </MenuItem>
+    <MenuItem>
+      <Link to="/Methode" className="block px-6 py-3 hover:text-gray-700">MÉTHODE CAP CLASSIQUE</Link>
+    </MenuItem>
+    <MenuItem>
+      <Link to="/Imported" className="block px-6 py-3 hover:text-gray-700">Imported Wine</Link>
+    </MenuItem>
+  </SubMenu>
+  <MenuItem>
+    <Link to="/Desserts" className="block px-6 py-3 hover:text-gray-700">Dessert</Link>
+  </MenuItem>
+  <MenuItem>
+    <Link to="/Cocktails" className="block px-6 py-3 hover:text-gray-700">Cocktails</Link>
+  </MenuItem>
+  <MenuItem>
+    <Link to="/Barmenu" className="block px-6 py-3 hover:text-gray-700">Bar Menu</Link>
+  </MenuItem>
+</Menu>
+<Link to="/Contact" className="block px-6 py-3 text-lg hover:bg-gray-300">Contact</Link>
+
+          </motion.div>
+        )}
+      </motion.nav>
     </>
   );
 };
